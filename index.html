@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Berlin Plus</title>
+    <link rel="icon" href="1-removebg-preview.png" type="image/png" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -73,6 +74,7 @@
             color: var(--dark-color) !important;
             position: relative;
             transition: all 0.3s ease;
+            display: inline-block;
         }
 
         .nav-link::after {
@@ -81,15 +83,15 @@
             width: 0;
             height: 2px;
             bottom: -5px;
-            left: 50%;
-            background: var(--gradient);
-            transition: all 0.3s ease;
+            left: 0;
+            background: var(--secondary-color);
+            transition: width 0.3s ease;
+            white-space: nowrap;
         }
 
         .nav-link:hover::after,
         .nav-link.active::after {
             width: 100%;
-            left: 0;
         }
 
         .hero-section {
@@ -126,6 +128,11 @@
         .hero-title img {
             height: 150px;
             margin-left: 20px;
+            display: inline;
+        }
+
+        .hero-title-text {
+            margin-right: 20px;
         }
 
         .hero-subtitle {
@@ -327,27 +334,65 @@
 
         @media (max-width: 768px) {
             .hero-title {
-                font-size: 2.5rem;
+                font-size: 2rem;
             }
             .hero-title img {
-                height: 100px;
+                height: 80px;
+            }
+            .hero-subtitle {
+                font-size: 1rem;
+                margin-bottom: 1rem;
             }
             .section-title {
-                font-size: 2rem;
+                font-size: 1.8rem;
             }
             .navbar-brand img {
                 height: 30px;
+            }
+            .navbar-brand {
+                font-size: 1.2rem;
+            }
+            .nav-link {
+                font-size: 0.9rem;
             }
             .contact-info {
                 padding: 1rem;
             }
             .contact-icon {
-                font-size: 2rem;
+                font-size: 1.8rem;
             }
             .map-container iframe {
                 width: 100%;
                 height: 200px;
             }
+            .course-card {
+                padding: 1rem;
+            }
+            .course-card h4 {
+                font-size: 1.2rem;
+            }
+            .course-card p {
+                font-size: 0.9rem;
+            }
+            .navbar-collapse .lang-toggle {
+                margin-top: 1rem;
+                margin-left: auto;
+                margin-right: auto;
+                display: block;
+                width: fit-content;
+            }
+            .about-image img {
+                width: 100%;
+                height: auto;
+                object-fit: cover;
+            }
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            box-shadow: none;
         }
     </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
@@ -364,6 +409,11 @@
                 if (link.getAttribute('onclick').includes(sectionId)) {
                     link.classList.add('active');
                 }
+            }
+            const navbarCollapse = document.querySelector('.navbar-collapse');
+            if (navbarCollapse.classList.contains('show')) {
+                const navbarToggler = document.querySelector('.navbar-toggler');
+                navbarToggler.click();
             }
         }
 
@@ -382,14 +432,13 @@
                 if (text) {
                     if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA' || el.tagName === 'SELECT') {
                         el.placeholder = text;
-                    } else {
+                    } else if (el.className !== 'hero-title-img') {
                         el.textContent = text;
                     }
                 }
             });
 
             langToggle.textContent = newLang.toUpperCase();
-            document.querySelector('.hero-title img').style.display = 'inline';
         }
     </script>
 </head>
@@ -404,7 +453,7 @@
     <nav class="navbar navbar-expand-lg">
         <div class="container">
             <a class="navbar-brand" href="#" onclick="showSection('home')">
-                <img src="1.jpg" alt="Berlin Plus">
+                <img src="1-removebg-preview.png" alt="Berlin Plus">
                 <span>Berlin Plus</span>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -441,11 +490,11 @@
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-12 hero-content">
-                        <h1 class="hero-title" data-ar="تعلم الألمانية بإتقان Berlin Plus" data-de="Deutsch perfekt lernen Berlin Plus">
-                            تعلم الألمانية بإتقان Berlin Plus
-                            <img src="1.jpg" alt="Berlin Plus">
+                        <h1 class="hero-title">
+                            <span class="hero-title-text" data-ar="تعلم الألمانية بإتقان Berlin Plus" data-de="Deutsch perfekt lernen Berlin Plus">تعلم الألمانية بإتقان Berlin Plus</span>
+                            <img src="1-removebg-preview.png" alt="Berlin Plus" class="hero-title-img">
                         </h1>
-                        <p class="hero-subtitle" data-ar="ابدأ رحلتك في تعلم اللغة الألمانية مع أفضل المدربين والمناهج المتطورة" data-de="Beginnen Sie Ihre Reise beim Deutschlernen mit den besten Trainern und fortschrittlichen Lehrplänen">ابدأ رحلتك في تعلم اللغة الألمانية مع أفضل المدربين والمناهج المتطورة</p>
+                        <p class="hero-subtitle" data-ar="ابدأ رحلتك في تعلم اللغة الألمانية مع أفضل المدربين والمناهج المتطورة. المركز معتمد لتعليم اللغة الألمانية" data-de="Beginnen Sie Ihre Reise beim Deutschlernen mit den besten Trainern und fortschrittlichen Lehrplänen. Der Zentrum ist zertifiziert für Deutschunterricht">ابدأ رحلتك في تعلم اللغة الألمانية مع أفضل المدربين والمناهج المتطورة. المركز معتمد لتعليم اللغة الألمانية</p>
                         <button class="btn btn-custom btn-lg" onclick="showSection('courses')" data-ar="استكشف الدورات" data-de="Kurse entdecken">استكشف الدورات</button>
                     </div>
                 </div>
@@ -460,9 +509,11 @@
             </div>
             <div class="row align-items-center">
                 <div class="col-lg-6">
-                    <h3 data-ar="رؤيتنا" data-de="Unsere Vision">رؤيتنا</h3>
-                    <p class="lead" data-ar="نسعى لأن نكون المركز الرائد في تعليم اللغة الألمانية في المنطقة، من خلال تقديم تعليم عالي الجودة يمكن الطلاب من إتقان اللغة الألمانية بثقة وطلاقة." data-de="Wir streben danach, das führende Zentrum für Deutschunterricht in der Region zu sein, indem wir qualitativ hochwertigen Unterricht anbieten, der es den Studenten ermöglicht, Deutsch selbstbewusst und fließend zu beherrschen.">نسعى لأن نكون المركز الرائد في تعليم اللغة الألمانية في المنطقة، من خلال تقديم تعليم عالي الجودة يمكن الطلاب من إتقان اللغة الألمانية بثقة وطلاقة.</p>
-                    <h3 data-ar="أهدافنا" data-de="Unsere Ziele">أهدافنا</h3>
+                    <h3 class="vision-title" data-ar="رؤيتنا" data-de="Unsere Vision">رؤيتنا</h3>
+                    <p class="lead" data-ar="سواء كنت تطمح للسفر، تكمل دراسة، اختصاص، شغل، لم الشمل، Berlin Plus هو الشريك المثالي لك! انضم إلينا ودعنا نرافقك خطوة بخطوة نحو النجاح في تعلم اللغة الألمانية بثقة تامة." data-de="Ob Sie reisen, Ihr Studium fortsetzen, eine Spezialisierung, Arbeit oder Familienzusammenführung anstreben, Berlin Plus ist der perfekte Partner für Sie! Treten Sie uns bei und lassen Sie uns Sie Schritt für Schritt zum Erfolg beim Deutschlernen mit vollem Vertrauen begleiten.">سواء كنت تطمح للسفر، تكمل دراسة، اختصاص، شغل، لم الشمل، Berlin Plus هو الشريك المثالي لك! انضم إلينا ودعنا نرافقك خطوة بخطوة نحو النجاح في تعلم اللغة الألمانية بثقة تامة.</p>
+                    <h3 class="vision-title" data-ar="فريقنا" data-de="Unser Team">فريقنا</h3>
+                    <p data-ar="تدير مركزنا المدربة المتميزة أسماء الصبح، التي تجلب خبرة 13 عامًا في تدريس اللغة الألمانية. بأسلوبها الديناميكي وشغفها الكبير، تساعد الطلاب على بناء قاعدة لغوية قوية مع بيئة تعليمية دافئة ومحفزة، مما يضمن تجربة تعليمية مميزة وممتعة." data-de="Unser Zentrum wird von der herausragenden Trainerin Asmaa Al-Sabah geleitet, die 13 Jahre Erfahrung im Unterricht der deutschen Sprache mitbringt. Mit ihrem dynamischen Stil und großer Leidenschaft hilft sie den Schülern, eine starke Sprachbasis aufzubauen, kombiniert mit einer warmen und motivierenden Lernumgebung, was ein einzigartiges und unterhaltsames Lernerlebnis garantiert.">تدير مركزنا المدربة المتميزة أسماء الصبح، التي تجلب خبرة 13 عامًا في تدريس اللغة الألمانية. بأسلوبها الديناميكي وشغفها الكبير، تساعد الطلاب على بناء قاعدة لغوية قوية مع بيئة تعليمية دافئة ومحفزة، مما يضمن تجربة تعليمية مميزة وممتعة.</p>
+                    <h3 class="vision-title" data-ar="أهدافنا" data-de="Unsere Ziele">أهدافنا</h3>
                     <ul>
                         <li data-ar="تطوير مهارات التحدث والاستماع والقراءة والكتابة" data-de="Entwicklung von Sprech-, Hör-, Lese- und Schreibfähigkeiten">تطوير مهارات التحدث والاستماع والقراءة والكتابة</li>
                         <li data-ar="إعداد الطلاب لامتحانات الشهادات الدولية" data-de="Vorbereitung der Studenten auf internationale Zertifikatsprüfungen">إعداد الطلاب لامتحانات الشهادات الدولية</li>
@@ -470,10 +521,8 @@
                         <li data-ar="تقديم دعم مستمر للطلاب في رحلتهم التعليمية" data-de="Kontinuierliche Unterstützung der Studenten auf ihrem Bildungsweg">تقديم دعم مستمر للطلاب في رحلتهم التعليمية</li>
                     </ul>
                 </div>
-                <div class="col-lg-6 text-center">
-                    <div style="font-size: 12rem; color: var(--primary-color); opacity: 0.3;">
-                        <i class="fas fa-users"></i>
-                    </div>
+                <div class="col-lg-6 text-center about-image">
+                    <img src="4.jpg" alt="">
                 </div>
             </div>
         </div>
@@ -488,8 +537,8 @@
                 <div class="col-md-6 col-lg-4">
                     <div class="course-card">
                         <div class="course-level">A1.1</div>
-                        <h4 data-ar="المستوى المبتدئ 1" data-de="Anfängerniveau 1">المستوى المبتدئ 1</h4>
-                        <p data-ar="تعلم الأساسيات: الأبجدية، التحيات، الأرقام، والجمل البسيطة." data-de="Lernen Sie die Grundlagen: Alphabet, Begrüßungen, Zahlen und einfache Sätze.">تعلم الأساسيات: الأبجدية، التحيات، الأرقام، والجمل البسيطة.</p>
+                        <h4 data-ar="خطوة الاستقرار 1" data-de="Stabilitätsstufe 1">خطوة الاستقرار 1</h4>
+                        <p data-ar="تعلم الأساسيات: الأبجدية، التحيات، الأرقام، والجمل." data-de="Lernen Sie die Grundlagen: Alphabet, Begrüßungen, Zahlen und Sätze.">تعلم الأساسيات: الأبجدية، التحيات، الأرقام، والجمل.</p>
                         <div class="mt-3">
                             <small class="text-muted">
                                 <i class="fas fa-money-bill-wave me-1"></i>
@@ -501,8 +550,8 @@
                 <div class="col-md-6 col-lg-4">
                     <div class="course-card">
                         <div class="course-level">A1.2</div>
-                        <h4 data-ar="المستوى المبتدئ 2" data-de="Anfängerniveau 2">المستوى المبتدئ 2</h4>
-                        <p data-ar="تعزيز المهارات الأساسية والتواصل اليومي البسيط." data-de="Vertiefung der Grundlagen und einfache tägliche Kommunikation.">تعزيز المهارات الأساسية والتواصل اليومي البسيط.</p>
+                        <h4 data-ar="خطوة الاستقرار 2" data-de="Stabilitätsstufe 2">خطوة الاستقرار 2</h4>
+                        <p data-ar="تعزيز المهارات الأساسية والتواصل اليومي." data-de="Vertiefung der Grundlagen und tägliche Kommunikation.">تعزيز المهارات الأساسية والتواصل اليومي.</p>
                         <div class="mt-3">
                             <small class="text-muted">
                                 <i class="fas fa-money-bill-wave me-1"></i>
@@ -514,7 +563,7 @@
                 <div class="col-md-6 col-lg-4">
                     <div class="course-card">
                         <div class="course-level">A2.1</div>
-                        <h4 data-ar="ما بعد المبتدئ 1" data-de="Grundstufe 1">ما بعد المبتدئ 1</h4>
+                        <h4 data-ar="خطوة التمكن 1" data-de="Beherrschungsstufe 1">خطوة التمكن 1</h4>
                         <p data-ar="توسيع المفردات وتعلم القواعد الأساسية." data-de="Erweitern Sie Ihren Wortschatz und lernen Sie grundlegende Grammatik.">توسيع المفردات وتعلم القواعد الأساسية.</p>
                         <div class="mt-3">
                             <small class="text-muted">
@@ -527,8 +576,8 @@
                 <div class="col-md-6 col-lg-4">
                     <div class="course-card">
                         <div class="course-level">A2.2</div>
-                        <h4 data-ar="ما بعد المبتدئ 2" data-de="Grundstufe 2">ما بعد المبتدئ 2</h4>
-                        <p data-ar="التعبير عن المشاعر والآراء البسيطة." data-de="Ausdrücken von einfachen Gefühlen und Meinungen.">التعبير عن المشاعر والآراء البسيطة.</p>
+                        <h4 data-ar="خطوة التمكن 2" data-de="Beherrschungsstufe 2">خطوة التمكن 2</h4>
+                        <p data-ar="بناء الثقة في التعبير عن الأفكار الشخصية." data-de="Aufbau des Selbstvertrauens beim Ausdruck persönlicher Ideen.">بناء الثقة في التعبير عن الأفكار الشخصية.</p>
                         <div class="mt-3">
                             <small class="text-muted">
                                 <i class="fas fa-money-bill-wave me-1"></i>
@@ -540,8 +589,8 @@
                 <div class="col-md-6 col-lg-4">
                     <div class="course-card">
                         <div class="course-level">B1.1</div>
-                        <h4 data-ar="المتوسط 1" data-de="Mittelstufe 1">المتوسط 1</h4>
-                        <p data-ar="تطوير التواصل المعقد وفهم النصوص البسيطة." data-de="Entwicklung komplexer Kommunikation und Verständnis einfacher Texte.">تطوير التواصل المعقد وفهم النصوص البسيطة.</p>
+                        <h4 data-ar="مستوى الاستقلال الأول" data-de="Unabhängigkeitsstufe 1">مستوى الاستقلال الأول</h4>
+                        <p data-ar="تطوير التواصل المعقد وفهم النصوص." data-de="Entwicklung komplexer Kommunikation und Verständnis von Texten.">تطوير التواصل المعقد وفهم النصوص.</p>
                         <div class="mt-3">
                             <small class="text-muted">
                                 <i class="fas fa-money-bill-wave me-1"></i>
@@ -553,7 +602,7 @@
                 <div class="col-md-6 col-lg-4">
                     <div class="course-card">
                         <div class="course-level">B1.2</div>
-                        <h4 data-ar="المتوسط 2" data-de="Mittelstufe 2">المتوسط 2</h4>
+                        <h4 data-ar="مستوى الاستقلال الثاني" data-de="Unabhängigkeitsstufe 2">مستوى الاستقلال الثاني</h4>
                         <p data-ar="التعبير عن الأفكار بوضوح في مواضيع مختلفة." data-de="Klarer Ausdruck von Ideen zu verschiedenen Themen.">التعبير عن الأفكار بوضوح في مواضيع مختلفة.</p>
                         <div class="mt-3">
                             <small class="text-muted">
@@ -566,7 +615,7 @@
                 <div class="col-md-6 col-lg-4">
                     <div class="course-card">
                         <div class="course-level">B2.1</div>
-                        <h4 data-ar="فوق المتوسط 1" data-de="Obere Mittelstufe 1">فوق المتوسط 1</h4>
+                        <h4 data-ar="مستوى الكفاءة الأول" data-de="Kompetenzstufe 1">مستوى الكفاءة الأول</h4>
                         <p data-ar="إتقان المحادثات المتقدمة وفهم النصوص المعقدة." data-de="Beherrschen fortgeschrittener Gespräche und Verständnis komplexer Texte.">إتقان المحادثات المتقدمة وفهم النصوص المعقدة.</p>
                         <div class="mt-3">
                             <small class="text-muted">
@@ -579,7 +628,7 @@
                 <div class="col-md-6 col-lg-4">
                     <div class="course-card">
                         <div class="course-level">B2.2</div>
-                        <h4 data-ar="فوق المتوسط 2" data-de="Obere Mittelstufe 2">فوق المتوسط 2</h4>
+                        <h4 data-ar="مستوى الكفاءة الثاني" data-de="Kompetenzstufe 2">مستوى الكفاءة الثاني</h4>
                         <p data-ar="التعبير الفعال في المواقف المهنية والأكاديمية." data-de="Effektiver Ausdruck in beruflichen und akademischen Situationen.">التعبير الفعال في المواقف المهنية والأكاديمية.</p>
                         <div class="mt-3">
                             <small class="text-muted">
@@ -638,8 +687,20 @@
                         <div class="faq-answer" data-ar="نحرص على أن يكون عدد الطلاب بين 8 إلى 12 طالبًا لضمان التفاعل والجودة في التعلم." data-de="Wir achten darauf, dass die Anzahl der Studenten zwischen 8 und 12 liegt, um Interaktion und Qualität im Lernen zu gewährleisten.">نحرص على أن يكون عدد الطلاب بين 8 إلى 12 طالبًا لضمان التفاعل والجودة في التعلم.</div>
                     </div>
                     <div class="faq-item">
-                        <div class="faq-question" data-ar="كيف يمكنني التواصل مع المركز؟" data-de="Wie kann ich den Kontakt mit dem Zentrum aufnehmen?">كيف يمكنني التواصل مع المركز؟</div>
+                        <div class="faq-question" data-ar="كيف يمكنني التواصل مع المركز?" data-de="Wie kann ich den Kontakt mit dem Zentrum aufnehmen?">كيف يمكنني التواصل مع المركز?</div>
                         <div class="faq-answer" data-ar="من خلال صفحة 'اتصل بنا'، أو عبر الرقم المخصص ووسائل التواصل الاجتماعي المدرجة في الموقع." data-de="Über die Seite 'Kontakt', oder über die angegebene Telefonnummer und die sozialen Medien auf der Website.">من خلال صفحة "اتصل بنا"، أو عبر الرقم المخصص ووسائل التواصل الاجتماعي المدرجة في الموقع.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question" data-ar="كم مدة الحصة؟" data-de="Wie lange dauert eine Stunde?">كم مدة الحصة؟</div>
+                        <div class="faq-answer" data-ar="مدة الحصة هي ساعة ونصف." data-de="Die Dauer einer Stunde beträgt eineinhalb Stunden.">مدة الحصة هي ساعة ونصف.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question" data-ar="كم مدة الكورسات؟" data-de="Wie lange dauern die Kurse?">كم مدة الكورسات؟</div>
+                        <div class="faq-answer" data-ar="كورس A1.1 مدته 5 أسابيع، وكورسات A1 الأخرى مدتها شهر، بينما كورسات B مدتها من شهر ونصف إلى شهرين." data-de="Der Kurs A1.1 dauert 5 Wochen, die anderen A1-Kurse einen Monat, während die B-Kurse zwischen eineinhalb und zwei Monaten dauern.">كورس A1.1 مدته 5 أسابيع، وكورسات A1 الأخرى مدتها شهر، بينما كورسات B مدتها من شهر ونصف إلى شهرين.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question" data-ar="ما هو المنهاج المعتمد بالتدريس؟" data-de="Welches Lehrplan wird für den Unterricht verwendet?">ما هو المنهاج المعتمد بالتدريس؟</div>
+                        <div class="faq-answer" data-ar="التدريس يتم عن طريق منهاج Studio المعتمد لدى Goethe وÖSD." data-de="Der Unterricht erfolgt gemäß dem Studio-Lehrplan, der von Goethe und ÖSD anerkannt ist.">التدريس يتم عن طريق منهاج Studio المعتمد لدى Goethe وÖSD.</div>
                     </div>
                 </div>
             </div>
@@ -658,7 +719,7 @@
                         <p data-ar="نحن هنا لمساعدتك في أي وقت! تواصل معنا بسهولة:" data-de="Wir sind jederzeit für Sie da! Kontaktieren Sie uns einfach:">نحن هنا لمساعدتك في أي وقت! تواصل معنا بسهولة:</p>
                         <div class="row justify-content-center mt-4">
                             <div class="col-md-4 mb-3">
-                                <a href="https://www.google.com/maps?q=Irbed,+Omran+Complex,+Al-Quds+Complex,+Floor+3,+Office+114" target="_blank" class="text-decoration-none">
+                                <a href="https://www.google.com/maps?q=32.535372,35.870298" target="_blank" class="text-decoration-none">
                                     <i class="fas fa-map-marker-alt contact-icon"></i>
                                 </a>
                                 <p data-ar="العنوان: اربد/مجمع عمان/مجمع القدس/الطابق 3 مكتب 114" data-de="Adresse: Irbed/Omran Complex/Al-Quds Complex/Floor 3, Office 114">العنوان: اربد/مجمع عمان/مجمع القدس/الطابق 3 مكتب 114</p>
@@ -670,16 +731,16 @@
                                 <p data-ar="الهاتف: +962 792536867" data-de="Telefon: +962 792536867">الهاتف: 0792536867</p>
                             </div>
                             <div class="col-md-4 mb-3">
-                                <a href="mailto:info@berlinplus.jo" class="text-decoration-none">
-                                    <i class="fas fa-envelope contact-icon"></i>
+                                <a href="https://www.facebook.com/share/19FwYFXx1o/" target="_blank" class="text-decoration-none">
+                                    <i class="fab fa-facebook contact-icon"></i>
                                 </a>
-                                <p data-ar="البريد الإلكتروني: info@berlinplus.jo" data-de="E-Mail: info@berlinplus.jo">البريد الإلكتروني: info@berlinplus.jo</p>
+                                <p data-ar="فيسبوك: Berlin Plus" data-de="Facebook: Berlin Plus">فيسبوك: Berlin Plus</p>
                             </div>
                             <div class="col-md-4 mb-3">
-                                <a href="https://wa.me/0792536867" target="_blank" class="text-decoration-none">
+                                <a href="https://wa.me/962792536867" target="_blank" class="text-decoration-none">
                                     <i class="fab fa-whatsapp contact-icon"></i>
                                 </a>
-                                <p data-ar="واتساب: +962 792536867" data-de="WhatsApp: +962 792536867">واتساب:  0792536867</p>
+                                <p data-ar="واتساب: 0792536867" data-de="WhatsApp: 0792536867">واتساب: 0792536867</p>
                             </div>
                             <div class="col-md-4 mb-3">
                                 <a href="https://instagram.com/berlin_plus_irbed" target="_blank" class="text-decoration-none">
@@ -692,10 +753,13 @@
                             <div class="col-md-6">
                                 <h4 data-ar="تواصل معنا عبر الشبكات الاجتماعية" data-de="Kontaktieren Sie uns über soziale Netzwerke">تواصل معنا عبر الشبكات الاجتماعية</h4>
                                 <div class="social-icons">
+                                    <a href="https://www.facebook.com/share/19FwYFXx1o/" target="_blank" class="me-3">
+                                        <i class="fab fa-facebook"></i>
+                                    </a>
                                     <a href="https://instagram.com/berlin_plus_irbed" target="_blank" class="me-3">
                                         <i class="fab fa-instagram"></i>
                                     </a>
-                                    <a href="https://wa.me/0792536867" target="_blank">
+                                    <a href="https://wa.me/962792536867" target="_blank">
                                         <i class="fab fa-whatsapp"></i>
                                     </a>
                                 </div>
@@ -715,9 +779,11 @@
                 <div class="col-md-6">
                     <h5 data-ar="Berlin Plus - مركز تعليم اللغة الألمانية" data-de="Berlin Plus - Deutschlernzentrum">Berlin Plus - مركز تعليم اللغة الألمانية</h5>
                     <p class="mb-3" data-ar="نحن نساعدك على تعلم اللغة الألمانية بأفضل الطرق والوسائل الحديثة" data-de="Wir helfen Ihnen, Deutsch mit den besten modernen Methoden und Mitteln zu lernen">نحن نساعدك على تعلم اللغة الألمانية بأفضل الطرق والوسائل الحديثة</p>
+                    <p data-ar="أوقات الدوام: الأحد-الخميس 2:30 م-9:00 م" data-de="Öffnungszeiten: Sonntag-Donnerstag 2:30 PM-9:00 PM">أوقات الدوام: الأحد-الخميس 2:30 م-9:00 م</p>
                     <div class="social-icons">
-                        <a href="https://instagram.com/berlin_plus_irbed"><i class="fab fa-instagram"></i></a>
-                        <a href="https://wa.me/0792536867"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.facebook.com/share/19FwYFXx1o/" target="_blank"><i class="fab fa-facebook"></i></a>
+                        <a href="https://instagram.com/berlin_plus_irbed" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/962792536867" target="_blank"><i class="fab fa-whatsapp"></i></a>
                     </div>
                 </div>
                 <div class="col-md-6">
