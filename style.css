@@ -242,18 +242,6 @@ body {
     margin-bottom: 1rem;
 }
 
-.payment-note {
-    background: var(--light-bg);
-    border-radius: 10px;
-    padding: 1.5rem;
-    text-align: center;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-}
-
-.payment-note h5 {
-    color: var(--dark-color);
-    font-weight: 600;
-}
 
 .contact-info {
     background: white;
@@ -442,9 +430,7 @@ body {
     .payment-icon {
         font-size: 2rem;
     }
-    .payment-note {
-        padding: 1rem;
-    }
+   
     #backToTop {
         width: 32px; /* Even smaller on mobile */
         height: 32px;
