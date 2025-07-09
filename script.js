@@ -1,5 +1,4 @@
 function showSection(sectionId) {
-    /* Display the selected section and update active navigation link */
     const sections = document.getElementsByClassName('page-section');
     for (let section of sections) {
         section.classList.remove('active');
@@ -20,12 +19,10 @@ function showSection(sectionId) {
 }
 
 window.onload = function() {
-    /* Initialize page by showing the home section */
     showSection('home');
 };
 
 function toggleLanguage() {
-    /* Switch the language between Arabic and German */
     const elements = document.querySelectorAll('[data-ar], [data-de]');
     const langToggle = document.getElementById('langText');
     const currentLang = langToggle.textContent === 'DE' ? 'de' : 'ar';
@@ -44,3 +41,12 @@ function toggleLanguage() {
 
     langToggle.textContent = newLang.toUpperCase();
 }
+
+window.addEventListener('scroll', function() {
+    const backToTop = document.getElementById('backToTop');
+    backToTop.style.display = window.scrollY > 300 ? 'block' : 'none';
+});
+
+document.getElementById('backToTop').addEventListener('click', function() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+});

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Berlin Plus</title>
+    <meta name="description" content="تعلم اللغة الألمانية مع Berlin Plus في إربد، دورات معتمدة من A1 إلى B2">
     <link rel="icon" href="1-removebg-preview.png" type="image/png" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
@@ -13,7 +14,7 @@
     <script src="script.js" defer></script>
 </head>
 <body>
-    <!-- Adding floating decorative elements with icons -->
+    <!-- Floating decorative elements -->
     <div class="floating-elements">
         <i class="fas fa-graduation-cap floating-element" style="top: 10%; left: 10%; font-size: 3rem;"></i>
         <i class="fas fa-book floating-element" style="top: 20%; right: 15%; font-size: 2rem; animation-delay: -2s;"></i>
@@ -21,19 +22,16 @@
         <i class="fas fa-certificate floating-element" style="bottom: 20%; right: 10%; font-size: 2rem; animation-delay: -3s;"></i>
     </div>
 
-    <!-- Creating a responsive navigation bar -->
+    <!-- Navigation bar -->
     <nav class="navbar navbar-expand-lg">
         <div class="container">
-            <!-- Brand logo and name with click event to show home section -->
             <a class="navbar-brand" href="#" onclick="showSection('home')">
                 <img src="1-removebg-preview.png" alt="Berlin Plus">
-                <span>  Berlin Plus    </span>
+                <span>Berlin Plus</span>
             </a>
-            <!-- Toggle button for mobile navigation -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <!-- Navigation links and language toggle -->
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
@@ -49,6 +47,9 @@
                         <a class="nav-link" href="#" onclick="showSection('faq')" data-ar="الأسئلة الشائعة" data-de="Häufige Fragen">الأسئلة الشائعة</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="showSection('payment')" data-ar="طرق الدفع" data-de="Zahlungsmethoden">طرق الدفع</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="#" onclick="showSection('contact')" data-ar="اتصل بنا" data-de="Kontakt">اتصل بنا</a>
                     </li>
                 </ul>
@@ -60,15 +61,15 @@
         </div>
     </nav>
 
-    <!-- Home section with hero content -->
-    <section id="home" class="page-section">
+    <!-- Home section -->
+    <section id="home" class="page-section active">
         <div class="hero-section">
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-12 hero-content">
                         <h1 class="hero-title">
                             <span class="hero-title-text" data-ar="تعلم الألمانية بإتقان Berlin Plus" data-de="Deutsch perfekt lernen Berlin Plus">تعلم الألمانية بإتقان Berlin Plus</span>
-                            <img src="1-removebg-preview.png" alt="Berlin Plus" class="hero-title-img">
+                            <img src="1-removebg-preview.png" alt="Berlin Plus" class="hero-title-img" loading="lazy">
                         </h1>
                         <p class="hero-subtitle" data-ar="ابدأ رحلتك في تعلم اللغة الألمانية مع أفضل المدربين والمناهج المتطورة. المركز معتمد لتعليم اللغة الألمانية" data-de="Beginnen Sie Ihre Reise beim Deutschlernen mit den besten Trainern und fortschrittlichen Lehrplänen. Der Zentrum ist zertifiziert für Deutschunterricht">ابدأ رحلتك في تعلم اللغة الألمانية مع أفضل المدربين والمناهج المتطورة. المركز معتمد لتعليم اللغة الألمانية</p>
                         <button class="btn btn-custom btn-lg" onclick="showSection('courses')" data-ar="استكشف الدورات" data-de="Kurse entdecken">استكشف الدورات</button>
@@ -78,7 +79,7 @@
         </div>
     </section>
 
-    <!-- About section with vision, team, and goals -->
+    <!-- About section -->
     <section id="about" class="page-section">
         <div class="container">
             <div class="text-center mb-5">
@@ -99,14 +100,13 @@
                     </ul>
                 </div>
                 <div class="col-lg-6 text-center about-image">
-                    <!-- Displaying an image for the about section -->
-                    <img src="4-removebg-preview.png" alt="">
+                    <img src="4-removebg-preview.png" alt="About Berlin Plus" loading="lazy">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Courses section with course cards -->
+    <!-- Courses section -->
     <section id="courses" class="page-section">
         <div class="container">
             <div class="text-center mb-5">
@@ -234,7 +234,7 @@
         </div>
     </section>
 
-    <!-- FAQ section with collapsible questions and answers -->
+    <!-- FAQ section -->
     <section id="faq" class="page-section">
         <div class="container">
             <div class="text-center mb-5">
@@ -243,43 +243,63 @@
             <div class="row">
                 <div class="col-12">
                     <div class="faq-item">
-                        <div class="faq-question" data-ar="ما هي المستويات المتوفرة لتعلم اللغة الألمانية في المركز؟" data-de="Welche Stufen sind für das Erlernen der deutschen Sprache im Zentrum verfügbar?">ما هي المستويات المتوفرة لتعلم اللغة الألمانية في المركز؟</div>
+                        <div class="faq-question">
+                            <span data-ar="ما هي المستويات المتوفرة لتعلم اللغة الألمانية في المركز؟" data-de="Welche Stufen sind für das Erlernen der deutschen Sprache im Zentrum verfügbar?">ما هي المستويات المتوفرة لتعلم اللغة الألمانية في المركز؟</span>
+                        </div>
                         <div class="faq-answer" data-ar="نوفر دورات لجميع المستويات، بدءًا من المبتدئين A1 إلى المتقدمين B2." data-de="Wir bieten Kurse für alle Stufen an, von Anfängern A1 bis zu Fortgeschrittenen B2.">نوفر دورات لجميع المستويات، بدءًا من المبتدئين A1 إلى المتقدمين B2.</div>
                     </div>
                     <div class="faq-item">
-                        <div class="faq-question" data-ar="هل أحتاج إلى خبرة سابقة في اللغة الألمانية قبل التسجيل؟" data-de="Benötige ich vorherige Erfahrung mit der deutschen Sprache vor der Anmeldung?">هل أحتاج إلى خبرة سابقة في اللغة الألمانية قبل التسجيل؟</div>
+                        <div class="faq-question">
+                            <span data-ar="هل أحتاج إلى خبرة سابقة في اللغة الألمانية قبل التسجيل؟" data-de="Benötige ich vorherige Erfahrung mit der deutschen Sprache vor der Anmeldung?">هل أحتاج إلى خبرة سابقة في اللغة الألمانية قبل التسجيل؟</span>
+                        </div>
                         <div class="faq-answer" data-ar="لا، دورات المستوى A1 مخصصة للمبتدئين تمامًا، ولا تتطلب أي معرفة سابقة." data-de="Nein, die A1-Kurse sind ausschließlich für Anfänger und erfordern keine vorherigen Kenntnisse.">لا، دورات المستوى A1 مخصصة للمبتدئين تمامًا، ولا تتطلب أي معرفة سابقة.</div>
                     </div>
                     <div class="faq-item">
-                        <div class="faq-question" data-ar="كم مدة كل دورة؟" data-de="Wie lange dauert jeder Kurs?">كم مدة كل دورة؟</div>
+                        <div class="faq-question">
+                            <span data-ar="كم مدة كل دورة؟" data-de="Wie lange dauert jeder Kurs?">كم مدة كل دورة؟</span>
+                        </div>
                         <div class="faq-answer" data-ar="تختلف مدة الدورات حسب المستوى، لكن عادةً تتراوح بين 6 إلى 8 أسابيع، بمعدل حصتين إلى ثلاث أسبوعيًا." data-de="Die Dauer der Kurse variiert je nach Stufe, liegt aber normalerweise zwischen 6 und 8 Wochen mit zwei bis drei Sitzungen pro Woche.">تختلف مدة الدورات حسب المستوى، لكن عادةً تتراوح بين 6 إلى 8 أسابيع، بمعدل حصتين إلى ثلاث أسبوعيًا.</div>
                     </div>
                     <div class="faq-item">
-                        <div class="faq-question" data-ar="ما هي لغة التدريس؟" data-de="Welche Sprache wird unterrichtet?">ما هي لغة التدريس؟</div>
+                        <div class="faq-question">
+                            <span data-ar="ما هي لغة التدريس؟" data-de="Welche Sprache wird unterrichtet?">ما هي لغة التدريس؟</span>
+                        </div>
                         <div class="faq-answer" data-ar="يتم التدريس باللغة العربية مع توضيح المفردات والقواعد باللغة الألمانية بشكل تدريجي." data-de="Der Unterricht erfolgt auf Arabisch mit schrittweiser Erläuterung der Vokabeln und Grammatik auf Deutsch.">يتم التدريس باللغة العربية مع توضيح المفردات والقواعد باللغة الألمانية بشكل تدريجي.</div>
                     </div>
                     <div class="faq-item">
-                        <div class="faq-question" data-ar="هل الدورات حضورية أم أونلاين؟" data-de="Sind die Kurse vor Ort oder online?">هل الدورات حضورية أم أونلاين؟</div>
+                        <div class="faq-question">
+                            <span data-ar="هل الدورات حضورية أم أونلاين؟" data-de="Sind die Kurse vor Ort oder online?">هل الدورات حضورية أم أونلاين؟</span>
+                        </div>
                         <div class="faq-answer" data-ar="الدورات تُقدَّم حضوريًا داخل المركز، كما تتوفر أيضًا دورات أونلاين عبر منصات التعليم الإلكتروني." data-de="Die Kurse werden vor Ort im Zentrum angeboten, es sind aber auch Online-Kurse über E-Learning-Plattformen verfügbar.">الدورات تُقدَّم حضوريًا داخل المركز، كما تتوفر أيضًا دورات أونلاين عبر منصات التعليم الإلكتروني.</div>
                     </div>
                     <div class="faq-item">
-                        <div class="faq-question" data-ar="ما هو عدد الطلاب في كل صف؟" data-de="Wie viele Studenten sind in jeder Klasse?">ما هو عدد الطلاب في كل صف؟</div>
+                        <div class="faq-question">
+                            <span data-ar="ما هو عدد الطلاب في كل صف؟" data-de="Wie viele Studenten sind in jeder Klasse?">ما هو عدد الطلاب في كل صف؟</span>
+                        </div>
                         <div class="faq-answer" data-ar="نحرص على أن يكون عدد الطلاب بين 8 إلى 12 طالبًا لضمان التفاعل والجودة في التعلم." data-de="Wir achten darauf, dass die Anzahl der Studenten zwischen 8 und 12 liegt, um Interaktion und Qualität im Lernen zu gewährleisten.">نحرص على أن يكون عدد الطلاب بين 8 إلى 12 طالبًا لضمان التفاعل والجودة في التعلم.</div>
                     </div>
                     <div class="faq-item">
-                        <div class="faq-question" data-ar="كيف يمكنني التواصل مع المركز?" data-de="Wie kann ich den Kontakt mit dem Zentrum aufnehmen?">كيف يمكنني التواصل مع المركز?</div>
-                        <div class="faq-answer" data-ar="من خلال صفحة 'اتصل بنا'، أو عبر الرقم المخصص ووسائل التواصل الاجتماعي المدرجة في الموقع." data-de="Über die Seite 'Kontakt', oder über die angegebene Telefonnummer und die sozialen Medien auf der Website.">من خلال صفحة "اتصل بنا"، أو عبر الرقم المخصص ووسائل التواصل الاجتماعي المدرجة في الموقع.</div>
+                        <div class="faq-question">
+                            <span data-ar="كيف يمكنني التواصل مع المركز؟" data-de="Wie kann ich den Kontakt mit dem Zentrum aufnehmen؟">كيف يمكنني التواصل مع المركز؟</span>
+                        </div>
+                        <div class="faq-answer" data-ar="من خلال صفحة 'اتصل بنا'، أو عبر الرقم المخصص ووسائل التواصل الاجتماعي المدرجة في الموقع." data-de="Über die Seite 'Kontakt', oder über die angegebene Telefonnummer und die sozialen Medien auf der Website.">من خلال صفحة 'اتصل بنا'، أو عبر الرقم المخصص ووسائل التواصل الاجتماعي المدرجة في الموقع.</div>
                     </div>
                     <div class="faq-item">
-                        <div class="faq-question" data-ar="كم مدة الحصة؟" data-de="Wie lange dauert eine Stunde?">كم مدة الحصة؟</div>
+                        <div class="faq-question">
+                            <span data-ar="كم مدة الحصة؟" data-de="Wie lange dauert eine Stunde؟">كم مدة الحصة؟</span>
+                        </div>
                         <div class="faq-answer" data-ar="مدة الحصة هي ساعة ونصف." data-de="Die Dauer einer Stunde beträgt eineinhalb Stunden.">مدة الحصة هي ساعة ونصف.</div>
                     </div>
                     <div class="faq-item">
-                        <div class="faq-question" data-ar="كم مدة الكورسات؟" data-de="Wie lange dauern die Kurse?">كم مدة الكورسات؟</div>
+                        <div class="faq-question">
+                            <span data-ar="كم مدة الكورسات؟" data-de="Wie lange dauern die Kurse؟">كم مدة الكورسات؟</span>
+                        </div>
                         <div class="faq-answer" data-ar="كورس A1.1 مدته 5 أسابيع، وكورسات A1 الأخرى مدتها شهر، بينما كورسات B مدتها من شهر ونصف إلى شهرين." data-de="Der Kurs A1.1 dauert 5 Wochen, die anderen A1-Kurse einen Monat, während die B-Kurse zwischen eineinhalb und zwei Monaten dauern.">كورس A1.1 مدته 5 أسابيع، وكورسات A1 الأخرى مدتها شهر، بينما كورسات B مدتها من شهر ونصف إلى شهرين.</div>
                     </div>
                     <div class="faq-item">
-                        <div class="faq-question" data-ar="ما هو المنهاج المعتمد بالتدريس?" data-de="Welches Lehrplan wird für den Unterricht verwendet?">ما هو المنهاج المعتمد بالتدريس?</div>
+                        <div class="faq-question">
+                            <span data-ar="ما هو المنهاج المعتمد بالتدريس؟" data-de="Welches Lehrplan wird für den Unterricht verwendet؟">ما هو المنهاج المعتمد بالتدريس؟</span>
+                        </div>
                         <div class="faq-answer" data-ar="التدريس يتم عن طريق منهاج Studio المعتمد لدى Goethe وÖSD." data-de="Der Unterricht erfolgt gemäß dem Studio-Lehrplan, der von Goethe und ÖSD anerkannt ist.">التدريس يتم عن طريق منهاج Studio المعتمد لدى Goethe وÖSD.</div>
                     </div>
                 </div>
@@ -287,7 +307,43 @@
         </div>
     </section>
 
-    <!-- Contact section with contact information and map -->
+    <!-- Payment Methods section -->
+    <section id="payment" class="page-section">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title" data-ar="طرق الدفع" data-de="Zahlungsmethoden">طرق الدفع</h2>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-4 mb-4">
+                    <div class="payment-method-card">
+                        <i class="fas fa-money-bill-wave payment-icon"></i>
+                        <h4 data-ar="الدفع النقدي" data-de="Barzahlung">الدفع النقدي</h4>
+                        <p data-ar="يمكنك دفع رسوم الدورة نقدًا مباشرة في مركز Berlin Plus في إربد." data-de="Sie können die Kursgebühren direkt im Berlin Plus Zentrum in Irbid bar bezahlen.">يمكنك دفع رسوم الدورة نقدًا مباشرة في مركز Berlin Plus في إربد.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="payment-method-card">
+                        <i class="fas fa-mobile-alt payment-icon"></i>
+                        <h4 data-ar="CliQ" data-de="CliQ">CliQ</h4>
+                        <p data-ar="قم بالدفع باستخدام CliQ عبر الرقم: 0792536867" data-de="Bezahlen Sie mit CliQ über die Nummer: 0792536867">قم بالدفع باستخدام CliQ عبر الرقم: 0792536867</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="payment-method-card">
+                        <i class="fas fa-wallet payment-icon"></i>
+                        <h4 data-ar="Orange Money" data-de="Orange Money">Orange Money</h4>
+                        <p data-ar="قم بالدفع باستخدام Orange Money عبر الرقم: 0798459439" data-de="Bezahlen Sie mit Orange Money über die Nummer: 0798459439">قم بالدفع باستخدام Orange Money عبر الرقم: 0798459439</p>
+                    </div>
+                </div>
+            </div>
+            <div class="payment-note mt-5">
+                <h5 data-ar="ملاحظة هامة" data-de="Wichtiger Hinweis">ملاحظة هامة</h5>
+                <p data-ar="لحجز مقعدك في الدورة، يرجى دفع مبلغ 25 دينار مقدمًا باستخدام إحدى طرق الدفع المذكورة أعلاه." data-de="Um Ihren Platz im Kurs zu reservieren, zahlen Sie bitte im Voraus 25 Dinar über eine der oben genannten Zahlungsmethoden.">لحجز مقعدك في الدورة، يرجى دفع مبلغ 25 دينار مقدمًا باستخدام إحدى طرق الدفع المذكورة أعلاه.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact section -->
     <section id="contact" class="page-section">
         <div class="container">
             <div class="text-center mb-5">
@@ -355,7 +411,7 @@
         </div>
     </section>
 
-    <!-- Footer section with contact info and quick links -->
+    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="row">
@@ -376,6 +432,7 @@
                         <li><a href="#" onclick="showSection('about')" class="text-light text-decoration-none" data-ar="من نحن" data-de="Über uns">من نحن</a></li>
                         <li><a href="#" onclick="showSection('courses')" class="text-light text-decoration-none" data-ar="الدورات" data-de="Kurse">الدورات</a></li>
                         <li><a href="#" onclick="showSection('faq')" class="text-light text-decoration-none" data-ar="الأسئلة الشائعة" data-de="Häufige Fragen">الأسئلة الشائعة</a></li>
+                        <li><a href="#" onclick="showSection('payment')" class="text-light text-decoration-none" data-ar="طرق الدفع" data-de="Zahlungsmethoden">طرق الدفع</a></li>
                         <li><a href="#" onclick="showSection('contact')" class="text-light text-decoration-none" data-ar="اتصل بنا" data-de="Kontakt">اتصل بنا</a></li>
                     </ul>
                 </div>
@@ -388,5 +445,10 @@
             </div>
         </div>
     </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="btn btn-custom" style="position: fixed; bottom: 20px; right: 20px; display: none;">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 </body>
 </html>
