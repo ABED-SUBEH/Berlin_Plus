@@ -444,56 +444,27 @@ body {
     object-fit: cover;
     box-shadow: none;
 }
-/* تنسيق خاص للصور داخل القسم */
-.content-wrapper {
-    display: flex;
-    align-items: center;
-    gap: 30px;
-    padding: 20px;
-}
-
-.image-side { 
-    flex: 1; 
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-}
-
+/* هذا الجزء هو المسؤول عن حجم الصور وتنسيقها بشكل موحد */
 .study-img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-    border-radius: 10px;
-}
-.study-img {
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-}
-.study-img:hover {
-    transform: scale(1.03); /* تكبير خفيف */
-    box-shadow: 0 10px 20px rgba(0,0,0,0.25); /* ظل أقوى */
-    cursor: pointer;
-}
-.text-side h2 {
-    font-size: 2rem;
-    color: #333;
-    margin-bottom: 20px;
-}
-
-.text-side p {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    color: #555;
-}
-
-/* تنسيق الصور */
-.study-img {
-    width: 45%; 
-    height: 200px; 
-    object-fit: cover; 
-    border-radius: 15px; 
-    transition: transform 0.3s ease;
+    width: 100%;        /* ستأخذ كامل عرض الخانة الموجودة فيها */
+    max-width: 350px;   /* حد أقصى للعرض لا تتجاوزه */
+    height: 250px;      /* ارتفاع ثابت للصور لتبدو متناسقة */
+    object-fit: cover;  /* قص الصورة لتعبئة المساحة دون تشويه */
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .study-img:hover {
     transform: scale(1.03);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    cursor: pointer;
+}
+
+/* تأكد من تنسيق حاوية الصور لتصطف بجانب بعضها */
+.image-side { 
+    display: flex; 
+    gap: 20px; 
+    justify-content: center; 
+    flex-wrap: wrap; /* تسمح للصور بالنزول لسطر جديد إذا صغرت الشاشة */
 }
